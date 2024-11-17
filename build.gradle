@@ -27,11 +27,17 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'org.hibernate.orm:hibernate-core:6.0.2.Final'  // Hibernate 6.0.2 이상
+    //implementation 'org.hibernate.orm:hibernate-core:5.6.15.Final'
     implementation 'mysql:mysql-connector-java:8.0.33'  // MySQL 드라이버 추가
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-json'
+    //implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    // swagger
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 
-
+    implementation 'org.antlr:antlr4-runtime:4.13.0'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.15'
     implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
     annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
     annotationProcessor "jakarta.annotation:jakarta.annotation-api"

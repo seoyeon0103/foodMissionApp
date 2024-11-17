@@ -2,6 +2,9 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
@@ -18,6 +21,9 @@ import java.util.List;
 @Getter
 //빌더 패턴을 사용하기 위함
 //생성자를 사용하는 것보다 더욱 편리하게 코딩이 가능해짐
+
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -54,6 +60,7 @@ public class Member extends BaseEntity {
     //@Column(nullable = false, length = 50)
     private String email;
 
+    @ColumnDefault("0")
     private Integer point;
 
     private String password;

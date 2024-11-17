@@ -19,3 +19,8 @@ spring:
         default_batch_fetch_size: 1000
         hbm2ddl:
           auto: create
+  springdoc:
+    api-docs:
+      path: /v3/api-docs
+    swagger-ui:
+      path: /swagger-ui.html
