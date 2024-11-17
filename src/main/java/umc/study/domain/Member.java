@@ -51,10 +51,12 @@ public class Member extends BaseEntity {
 
     private LocalDate incactiveDate;
 
-    @Column(nullable = false, length = 50)
+    //@Column(nullable = false, length = 50)
     private String email;
 
     private Integer point;
+
+    private String password;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberAgree> memberAgreeList = new ArrayList<>();
