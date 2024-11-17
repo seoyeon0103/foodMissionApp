@@ -23,6 +23,12 @@ public class MemberCommandServiceImpl implements MemberCommandService{
     private final MemberRepository memberRepository;
     private final FoodCategoryRepository foodCategoryRepository;
 
+    public Boolean findExistingIds(List<Long> ids){
+        boolean isValid = ids.stream()
+                .allMatch(id -> foodCategoryRepository.existsById(id));
+        return isValid;
+    }
+
     @Override
     @Transactional
     public Member joinMember(MemberRequestDTO.JoinDto request){
