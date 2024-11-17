@@ -16,6 +16,21 @@ public class StoreRepositoryImpl implements StoreRepositoryCustom{
     private final QStore store = QStore.store;
 
     @Override
+    public String getName(Long storeId){
+        BooleanBuilder predicate = new BooleanBuilder();
+
+        if(storeId != null){
+            predicate.and(store.id.eq(storeId));
+        }
+
+        return jpaQueryFactory
+                .select(store.name)
+                .from(store)
+                .where(predicate)
+                .fetchOne();
+    }
+
+    @Override
     public List<Store> dynamicQueryWithBooleanBuilder(String name, Float score) {
         BooleanBuilder predicate = new BooleanBuilder();
 

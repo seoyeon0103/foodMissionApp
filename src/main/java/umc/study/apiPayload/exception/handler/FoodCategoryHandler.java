@@ -1,7 +1,6 @@
 package umc.study.apiPayload.exception.handler;
 
 import umc.study.apiPayload.code.status.ErrorStatus;
-import umc.study.repository.FoodCategoryRepository;
 
 public class FoodCategoryHandler extends RuntimeException {
   private final String errorcode;;

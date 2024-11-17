@@ -9,9 +9,6 @@ public class MissionRequestDto {
     @Getter
     public static class MissionRequest {
         @NotNull
-        private Long storeId;
-
-        @NotNull
         private Integer reward;
 
         @NotNull

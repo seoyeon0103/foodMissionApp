@@ -10,7 +10,7 @@ import umc.study.converter.MemberPreferConverter;
 import umc.study.domain.FoodCategory;
 import umc.study.domain.Member;
 import umc.study.domain.mapping.MemberPrefer;
-import umc.study.repository.FoodCategoryRepository;
+import umc.study.repository.FoodCategoryRepository.FoodCategoryRepository;
 import umc.study.repository.MemberRepository.MemberRepository;
 import umc.study.web.dto.MemberRequestDTO;
 
@@ -23,9 +23,8 @@ public class MemberCommandServiceImpl implements MemberCommandService{
     private final MemberRepository memberRepository;
     private final FoodCategoryRepository foodCategoryRepository;
 
-    public Boolean findExistingIds(List<Long> ids){
-        boolean isValid = ids.stream()
-                .allMatch(id -> foodCategoryRepository.existsById(id));
+    public Boolean findExistingIds(Long id){
+        boolean isValid = foodCategoryRepository.existsById(id);
         return isValid;
     }
 

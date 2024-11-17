@@ -15,6 +15,15 @@ public class MissionResponseDto {
         private Long missionId;
 
         @NotNull
-        private Long memberMissionId;
+        private String storename;
+
+        @NotNull
+        private String foodKind;
+
+        @NotNull
+        private String content;
+
+        @NotNull
+        private Integer reward;
     }
 }
