@@ -28,7 +28,6 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
                 .orElseThrow(()-> new IllegalArgumentException("Invalid storeId: " + storeId));
 
         Review newReview = ReviewConverter.toReview(request,store);
-        newReview.setStore(store);
         //newReview.setMember(member);
 
         Review savedReview = reviewRepository.save(newReview);

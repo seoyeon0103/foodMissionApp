@@ -17,7 +17,9 @@ public class ReviewRestController {
     private final ReviewCommandService reviewCommandService;
 
     @PostMapping("/{storeId}/create")
-    public ApiResponse<ReviewResponseDTO.completereviewInfo> create(@PathVariable Long storeId, @RequestBody @Valid ReviewRequestDTO.registerreviewInfo request){
+    public ApiResponse<ReviewResponseDTO.completereviewInfo> create(
+            @PathVariable("storeId") Long storeId,
+            @RequestBody @Valid ReviewRequestDTO.registerreviewInfo request){
 
         ReviewResponseDTO.completereviewInfo response = reviewCommandService.createReview(request,storeId);
 

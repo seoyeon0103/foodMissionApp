@@ -4,6 +4,8 @@ import lombok.*;
 import umc.study.domain.common.BaseEntity;
 
 import jakarta.persistence.*;
+
+import javax.xml.stream.events.Comment;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +35,10 @@ public class Store extends BaseEntity {
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Review> reviewList = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "food_category_id")
+    private FoodCategory foodCategory;
 
     @Override
     public String toString() {

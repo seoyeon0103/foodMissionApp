@@ -29,6 +29,8 @@ public class QStore extends EntityPathBase<Store> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
+    public final QFoodCategory foodCategory;
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final ListPath<Mission, QMission> missionList = this.<Mission, QMission>createList("missionList", Mission.class, QMission.class, PathInits.DIRECT2);
@@ -62,6 +64,7 @@ public class QStore extends EntityPathBase<Store> {
 
     public QStore(Class<? extends Store> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
+        this.foodCategory = inits.isInitialized("foodCategory") ? new QFoodCategory(forProperty("foodCategory"), inits.get("foodCategory")) : null;
         this.region = inits.isInitialized("region") ? new QRegion(forProperty("region")) : null;
     }
 

@@ -16,7 +16,7 @@ public class MIssionRestController {
 
     @PostMapping("/{storeId}/create")
     public ApiResponse<MissionResponseDto.MissionResponse> createMission(
-            @PathVariable Long storeId,
+            @PathVariable("storeId") Long storeId,
             @RequestBody @Valid MissionRequestDto.MissionRequest request) {
        MissionResponseDto.MissionResponse response = missionCommandService.create(storeId, request);
 

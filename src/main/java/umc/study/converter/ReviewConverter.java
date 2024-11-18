@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 public class ReviewConverter {
     public static ReviewRequestDTO.reviewImageInfo toReviewImageInfo(ReviewImage reviewImage){
         return ReviewRequestDTO.reviewImageInfo.builder()
-                .imageId(reviewImage.getId())
                 .imageUrl(reviewImage.getImageUrl())
                 .build();
 
@@ -43,7 +42,7 @@ public class ReviewConverter {
                             .build())
                     .collect(Collectors.toList());
 
-            review.getReviews().addAll(reviewImages);
+            review.setReviews(reviewImages);
         }
 
         return review;
