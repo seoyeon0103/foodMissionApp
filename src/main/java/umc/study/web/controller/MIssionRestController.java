@@ -5,8 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import umc.study.apiPayload.ApiResponse;
 import umc.study.service.MissionService.MissionCommandService;
-import umc.study.web.dto.MissionRequestDto;
-import umc.study.web.dto.MissionResponseDto;
+import umc.study.web.dto.MissionDTO.MissionRequestDto;
+import umc.study.web.dto.MissionDTO.MissionResponseDto;
 
 @RestController
 @RequiredArgsConstructor

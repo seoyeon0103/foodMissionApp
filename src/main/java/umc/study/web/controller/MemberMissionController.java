@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import umc.study.apiPayload.ApiResponse;
 import umc.study.service.MissionService.MissionCommandService;
 import umc.study.validation.annotation.NoDuplicationMission;
-import umc.study.web.dto.MemberMissionResponseDTO;
+import umc.study.web.dto.MemberMissionDTO.MemberMissionResponseDTO;
 
 @RestController
 @RequiredArgsConstructor

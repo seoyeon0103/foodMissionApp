@@ -33,8 +33,11 @@ public class Review extends BaseEntity {
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<ReviewImage> reviews = new ArrayList<>();
 
-    @Override
+    /*@Override
     public String toString() {
-        return "Review [id=" + id + ", title=" + body + ", score=" + score + ", member=" + member + "]";
-    }
+        return "Review [id=" + id + "," +
+                " title=" + body + ", " +
+                "score=" + score + ", " +
+                "member=" + member + "]";
+    }*/
 }

@@ -1,11 +1,10 @@
-package umc.study.web.dto;
+package umc.study.web.dto.ReviewDTO;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import umc.study.domain.ReviewImage;
 
 import java.util.List;
 

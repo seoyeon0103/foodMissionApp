@@ -2,7 +2,7 @@ package umc.study.converter;
 
 
 import umc.study.domain.mapping.MemberMission;
-import umc.study.web.dto.MemberMissionResponseDTO;
+import umc.study.web.dto.MemberMissionDTO.MemberMissionResponseDTO;
 
 public class MissionMemberConverter {
     public static MemberMissionResponseDTO toMemberMission(MemberMission memberMission){

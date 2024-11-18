@@ -1,10 +1,9 @@
-package umc.study.web.dto;
+package umc.study.web.dto.MemberDTO;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
-import umc.study.domain.enums.Gender;
 import umc.study.validation.annotation.ExistCategories;
 import java.util.List;
 
