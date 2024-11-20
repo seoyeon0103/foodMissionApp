@@ -49,4 +49,29 @@ public class ReviewResponseDTO {
         Boolean isFirst;
         Boolean isLast;
     }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class myReviewDetailResponse{
+        String nickName;
+        String storeName;
+        Float score;
+        String body;
+        LocalDate createAt;
+    }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class myReviewListViewResponse{
+        List<myReviewDetailResponse> myReviewList;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
 }

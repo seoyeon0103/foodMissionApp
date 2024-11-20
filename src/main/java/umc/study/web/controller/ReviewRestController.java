@@ -10,10 +10,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import umc.study.apiPayload.ApiResponse;
+import umc.study.apiPayload.exception.PageValidationException;
 import umc.study.converter.ReviewConverter;
 import umc.study.domain.Review;
+import umc.study.service.MemberService.MemberCommandService;
 import umc.study.service.ReviewService.ReviewCommandService;
 import umc.study.service.StoreService.StoreCommandService;
+import umc.study.validation.annotation.ExistMember;
 import umc.study.validation.annotation.ExistStore;
 import umc.study.web.dto.ReviewDTO.ReviewRequestDTO;
 import umc.study.web.dto.ReviewDTO.ReviewResponseDTO;
@@ -35,7 +38,7 @@ public class ReviewRestController {
         return ApiResponse.onSuccess(response);
     }
 
-    @GetMapping("{storeId}")
+    @GetMapping("{storeId}/store")
     @ApiResponses({
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200"
                     , description = "OK, 성공"),
@@ -63,11 +66,32 @@ public class ReviewRestController {
         if(page > 0 ){
             pageCustom = page -1;
         }else{
-            throw new IllegalArgumentException("Page number must be greater than 0");
+            throw new PageValidationException("Page number must be greater than 0");
         }
+
         Page<Review> reviewList = storeCommandService.getReviewList(storeId, pageCustom);
 
         return ApiResponse.onSuccess(ReviewConverter.toReviewList(reviewList));
+    }
+
+    @GetMapping("{memberId}/my")
+    @Parameters({
+            @Parameter(name = "memberId", description = "내 아이디, path variable 입니다!")
+    })
+    public ApiResponse<ReviewResponseDTO.myReviewListViewResponse> getMyReviewList
+            (@ExistMember @PathVariable("memberId") Long memberId,
+             @RequestParam(name = "page") Integer page){
+        Integer pageCustom;
+
+        if(page > 0 ){
+            pageCustom = page -1;
+        }else{
+            throw new PageValidationException("Page number must be greater than 0");
+        }
+
+        Page<Review> reviewList = reviewCommandService.getMyReviewList(memberId, pageCustom);
+
+        return ApiResponse.onSuccess(ReviewConverter.toMyReviewList(reviewList));
     }
 
 }
