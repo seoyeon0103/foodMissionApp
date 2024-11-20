@@ -1,4 +1,4 @@
-package umc.study.web.dto;
+package umc.study.web.dto.MissionDTO;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

@@ -12,7 +12,7 @@ import umc.study.domain.Member;
 import umc.study.domain.mapping.MemberPrefer;
 import umc.study.repository.FoodCategoryRepository.FoodCategoryRepository;
 import umc.study.repository.MemberRepository.MemberRepository;
-import umc.study.web.dto.MemberRequestDTO;
+import umc.study.web.dto.MemberDTO.MemberRequestDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,6 +23,7 @@ public class MemberCommandServiceImpl implements MemberCommandService{
     private final MemberRepository memberRepository;
     private final FoodCategoryRepository foodCategoryRepository;
 
+    @Override
     public Boolean findExistingIds(Long id){
         boolean isValid = foodCategoryRepository.existsById(id);
         return isValid;

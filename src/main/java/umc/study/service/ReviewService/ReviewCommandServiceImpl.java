@@ -9,10 +9,8 @@ import umc.study.domain.Store;
 import umc.study.repository.ReviewRepository.ReviewImageRepository;
 import umc.study.repository.ReviewRepository.ReviewRepository;
 import umc.study.repository.StoreRepository.StoreRepository;
-import umc.study.web.dto.ReviewRequestDTO;
-import umc.study.web.dto.ReviewResponseDTO;
-
-import java.util.List;
+import umc.study.web.dto.ReviewDTO.ReviewRequestDTO;
+import umc.study.web.dto.ReviewDTO.ReviewResponseDTO;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +26,6 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
                 .orElseThrow(()-> new IllegalArgumentException("Invalid storeId: " + storeId));
 
         Review newReview = ReviewConverter.toReview(request,store);
-        newReview.setStore(store);
         //newReview.setMember(member);
 
         Review savedReview = reviewRepository.save(newReview);

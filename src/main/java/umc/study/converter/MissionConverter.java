@@ -1,10 +1,8 @@
 package umc.study.converter;
 
-import umc.study.domain.FoodCategory;
 import umc.study.domain.Mission;
-import umc.study.domain.Store;
-import umc.study.web.dto.MissionRequestDto;
-import umc.study.web.dto.MissionResponseDto;
+import umc.study.web.dto.MissionDTO.MissionRequestDto;
+import umc.study.web.dto.MissionDTO.MissionResponseDto;
 
 public class MissionConverter {
     public static MissionResponseDto.MissionResponse tomissionResponse(Mission mission, String storename, String foodcategory){
