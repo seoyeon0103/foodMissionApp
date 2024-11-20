@@ -2,6 +2,9 @@ package umc.study.service.MissionService;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import umc.study.converter.MissionConverter;
 import umc.study.converter.MissionMemberConverter;
@@ -24,7 +27,6 @@ import umc.study.web.dto.MissionDTO.MissionResponseDto;
 public class MissionCommandServiceImpl implements MissionCommandService {
     private final MissionRepository missionRepository;
     private final StoreRepository storeRepository;
-    private final FoodCategoryRepository foodCategoryRepository;
     private final MemberRepository memberRepository;
     private final MemberMissionRepository memberMissionRepository;
 
@@ -74,5 +76,13 @@ public class MissionCommandServiceImpl implements MissionCommandService {
                         (missionId, MissionStatus.CHALLENGING);
 
         return exists;
+    }
+
+    @Override
+    public Page<MemberMission> getMyChallengingMissions(Long memberId, Integer page){
+        Page<MemberMission> myMyMissions =
+                memberMissionRepository.findById(memberId, PageRequest.of(page, 10));
+
+        return myMyMissions;
     }
 }

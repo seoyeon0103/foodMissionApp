@@ -5,6 +5,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 public class MissionResponseDto {
     @Getter
@@ -25,5 +28,30 @@ public class MissionResponseDto {
 
         @NotNull
         private Integer reward;
+    }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class myMissionDetailResponse{
+        private Long memberMissionId;
+        private String storeName;
+        private String foodCategory;
+        private String missionSpec;
+        private Integer reward;
+    }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class myMissionListViewResponse{
+        List<myMissionDetailResponse> myMissionList;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
     }
 }

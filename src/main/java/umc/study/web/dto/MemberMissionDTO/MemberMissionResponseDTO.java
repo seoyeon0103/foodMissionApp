@@ -8,6 +8,7 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class MemberMissionResponseDTO {
+
     private Long memberMissionId;
     private String storeName;
     private String foodCategory;
