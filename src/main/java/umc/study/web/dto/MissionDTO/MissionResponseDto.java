@@ -54,4 +54,17 @@ public class MissionResponseDto {
         Boolean isFirst;
         Boolean isLast;
     }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class storeMissionResponse{
+        List<MissionResponse> storeMissionList;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
 }

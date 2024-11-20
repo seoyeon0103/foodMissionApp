@@ -3,6 +3,7 @@ package umc.study.service.MissionService;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import umc.study.domain.Mission;
 import umc.study.domain.enums.MissionStatus;
 import umc.study.domain.mapping.MemberMission;
 import umc.study.web.dto.MemberMissionDTO.MemberMissionResponseDTO;
@@ -17,4 +18,5 @@ public interface MissionCommandService {
     boolean existsByMemberIdAndMissionIdAndMissionStatus(Long missionId, MissionStatus status);
 
     public Page<MemberMission> getMyChallengingMissions(Long memberId, Integer page);
+    public Page<Mission> getStoreMissions(Long storeId, Integer page);
 }

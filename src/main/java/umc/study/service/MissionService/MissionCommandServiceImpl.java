@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import umc.study.apiPayload.exception.PageValidationException;
 import umc.study.converter.MissionConverter;
 import umc.study.converter.MissionMemberConverter;
 import umc.study.domain.Member;
@@ -84,5 +85,13 @@ public class MissionCommandServiceImpl implements MissionCommandService {
                 memberMissionRepository.findById(memberId, PageRequest.of(page, 10));
 
         return myMyMissions;
+    }
+
+    @Override
+    public Page<Mission> getStoreMissions(Long storeId, Integer page){
+        Page<Mission> storeMissions =
+                missionRepository.getMissionsByStoreId(storeId, PageRequest.of(page, 10));
+
+        return storeMissions;
     }
 }

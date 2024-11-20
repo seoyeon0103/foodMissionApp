@@ -39,15 +39,4 @@ public class Store extends BaseEntity {
     @OneToOne
     @JoinColumn(name = "food_category_id")
     private FoodCategory foodCategory;
-
-    @Override
-    public String toString() {
-        return "Store{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", score=" + score +
-                ", region=" + (region != null ? region.getName() : "N/A") + // region의 이름 출력
-                '}';
-    }
 }
