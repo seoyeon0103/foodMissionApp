@@ -36,9 +36,6 @@ public class ReviewRestController {
     }
 
     @GetMapping("{storeId}")
-    //Operation : Api의 설명
-    //@Operation(summary = "특정 가게 목록 조회 api", description = "특정 가게 리뷰 목록 조회 api")
-    //@ApiResponse : api 응답들
     @ApiResponses({
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200"
                     , description = "OK, 성공"),
@@ -61,7 +58,14 @@ public class ReviewRestController {
     public ApiResponse<ReviewResponseDTO.reviewListViewResponse> getReviewList
             (@ExistStore @PathVariable("storeId") Long storeId,
              @RequestParam(name = "page") Integer page){
-        Page<Review> reviewList = storeCommandService.getReviewList(storeId, page);
+        Integer pageCustom;
+
+        if(page > 0 ){
+            pageCustom = page -1;
+        }else{
+            throw new IllegalArgumentException("Page number must be greater than 0");
+        }
+        Page<Review> reviewList = storeCommandService.getReviewList(storeId, pageCustom);
 
         return ApiResponse.onSuccess(ReviewConverter.toReviewList(reviewList));
     }
