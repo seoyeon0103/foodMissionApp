@@ -29,15 +29,4 @@ public class MemberMission extends BaseEntity {
     @JoinColumn(name = "mission_id")
     private Mission mission;
 
-    @Override
-    public String toString() {
-        return "Store{" +
-                "member_id=" + member.getId() +
-                ", point='" +  mission.getReward() + '\'' +
-                ", status ='" + missionStatus + '\'' +
-                ", store_name =" + mission.getStore().getName()+
-                ", mission_spec =" + mission.getMissionSpec() +
-                '}';
-    }
-
 }

@@ -4,6 +4,8 @@ import lombok.*;
 import umc.study.domain.common.BaseEntity;
 
 import jakarta.persistence.*;
+
+import javax.xml.stream.events.Comment;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,14 +36,7 @@ public class Store extends BaseEntity {
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Review> reviewList = new ArrayList<>();
 
-    @Override
-    public String toString() {
-        return "Store{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", score=" + score +
-                ", region=" + (region != null ? region.getName() : "N/A") + // region의 이름 출력
-                '}';
-    }
+    @OneToOne
+    @JoinColumn(name = "food_category_id")
+    private FoodCategory foodCategory;
 }

@@ -2,14 +2,11 @@ package umc.study.converter;
 
 import umc.study.domain.Member;
 import umc.study.domain.enums.Gender;
-import umc.study.web.dto.MemberRequestDTO;
-import umc.study.web.dto.MemberResponseDTO;
+import umc.study.web.dto.MemberDTO.MemberRequestDTO;
+import umc.study.web.dto.MemberDTO.MemberResponseDTO;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class MemberConverter {
     public static MemberResponseDTO.JoinResultDTO toJoinResultDTO(Member member) {

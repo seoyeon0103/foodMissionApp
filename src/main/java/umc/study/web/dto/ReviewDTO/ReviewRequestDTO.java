@@ -1,10 +1,10 @@
-package umc.study.web.dto;
+package umc.study.web.dto.ReviewDTO;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import umc.study.domain.ReviewImage;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -12,9 +12,8 @@ public class ReviewRequestDTO {
     @Getter
     @Builder
     @AllArgsConstructor
+    @NoArgsConstructor
     public static class reviewImageInfo{
-        @NotNull
-        private Long imageId;
         @NotNull
         private String imageUrl;
     }
@@ -22,6 +21,7 @@ public class ReviewRequestDTO {
     @Getter
     @Builder
     @AllArgsConstructor
+    @NoArgsConstructor
     public static class registerreviewInfo{
         @NotNull
         private float rating;

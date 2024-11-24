@@ -25,7 +25,15 @@ import java.util.Optional;
 @Slf4j
 @RestControllerAdvice(annotations = {RestController.class})
 public class ExceptionAdvice extends ResponseEntityExceptionHandler {
+    @ExceptionHandler(PageValidationException.class)
+    public ResponseEntity<Object> handlePageValidationException(PageValidationException ex, WebRequest request) {
+        ApiResponse<Object> body = ApiResponse.onFailure(
+                "INVALID_PAGE", ex.getMessage(),null);
 
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(body);
+    }
 
     @ExceptionHandler
     public ResponseEntity<Object> validation(ConstraintViolationException e, WebRequest request) {
