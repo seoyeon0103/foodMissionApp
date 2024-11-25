@@ -27,7 +27,7 @@ public class SecurityConfig {
         //anyREquest.authenticated() 는 그 외 모든 요청에 대해 인증 요구를 해야함
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home", "/signup", "/css/**").permitAll()
+                        .requestMatchers("/", "/home", "/signup", "/members/signup", "/css/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
