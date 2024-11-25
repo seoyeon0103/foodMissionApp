@@ -1,6 +1,7 @@
 package umc.study.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.study.apiPayload.code.status.ErrorStatus;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 public class MemberCommandServiceImpl implements MemberCommandService{
     private final MemberRepository memberRepository;
     private final FoodCategoryRepository foodCategoryRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Boolean findExistingIds(Long id){
@@ -34,6 +36,8 @@ public class MemberCommandServiceImpl implements MemberCommandService{
     public Member joinMember(MemberRequestDTO.JoinDto request){
         //새로운 member register
         Member newMember = MemberConverter.toMember(request);
+        newMember.encodePassword(passwordEncoder.encode(request.getPassword()));
+
         List<FoodCategory> foodCategoryList = request.getPreferCategory().stream()
                 .map(category -> {
                     return foodCategoryRepository.findById(category)
